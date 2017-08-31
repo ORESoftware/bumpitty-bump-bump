@@ -1,0 +1,39 @@
+{
+  "name": "bumpitty-bump-bump",
+  "version": "0.0.1",
+  "description": "Bumps a value in package.json",
+  "typings": "index.d.ts",
+  "types": "index.d.ts",
+  "main": "index.js",
+  "bin": {
+    "b3": "index.js"
+  },
+  "scripts": {
+    "test": "suman"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ORESoftware/bumpitty-bump-bump.git"
+  },
+  "keywords": [
+    "bump",
+    "package.json",
+    "docker",
+    "git",
+    "changes"
+  ],
+  "author": "Olegzandr VD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ORESoftware/bumpitty-bump-bump/issues"
+  },
+  "homepage": "https://github.com/ORESoftware/bumpitty-bump-bump#readme",
+  "dependencies": {
+    "residence": "0.0.205"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.43",
+    "@types/node": "^8.0.26"
+  },
+  "b3val": 4
+}

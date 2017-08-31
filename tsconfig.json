@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "baseUrl": ".",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "target": "es5",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "allowUnreachableCode": true,
+    "lib": [
+      "es2015",
+      "es2016"
+    ],
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "newLine": "LF",
+    "noUnusedParameters": false,
+    "emitDecoratorMetadata": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "compileOnSave": false,
+  "exclude": [
+    "test",
+    "node_modules"
+  ]
+}
