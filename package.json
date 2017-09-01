@@ -1,6 +1,6 @@
 {
   "name": "bumpitty-bump-bump",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bumps a value in package.json",
   "typings": "index.d.ts",
   "types": "index.d.ts",
