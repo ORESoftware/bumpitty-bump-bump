@@ -12,21 +12,24 @@ var syncSetup = function () {
     pkg.b3val++;
     return { pkg: pkg, pkgPath: pkgPath };
 };
+var getStringifiedData = function (pkg) {
+    return JSON.stringify(pkg, null, 2);
+};
 exports.bumpSync = function () {
     var _a = syncSetup(), pkg = _a.pkg, pkgPath = _a.pkgPath;
-    fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+    fs.writeFileSync(pkgPath, getStringifiedData(pkg));
 };
 exports.bumpp = function () {
     return new Promise(function (resolve, reject) {
         var _a = syncSetup(), pkg = _a.pkg, pkgPath = _a.pkgPath;
-        fs.writeFile(pkgPath, JSON.stringify(pkg, null, 2), function (err) {
+        fs.writeFile(pkgPath, getStringifiedData(pkg), function (err) {
             err ? reject(err) : resolve();
         });
     });
 };
 exports.bump = function (cb) {
     var _a = syncSetup(), pkg = _a.pkg, pkgPath = _a.pkgPath;
-    fs.writeFile(pkgPath, JSON.stringify(pkg, null, 2), cb);
+    fs.writeFile(pkgPath, getStringifiedData(pkg), cb);
 };
 if (require.main === module) {
     exports.bumpSync();

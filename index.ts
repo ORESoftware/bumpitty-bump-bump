@@ -4,6 +4,7 @@ import fs = require('fs');
 import path = require('path');
 import residence = require('residence');
 import ErrnoException = NodeJS.ErrnoException;
+export type ErrnoExceptionFn = (e: ErrnoException) => void;
 
 let syncSetup = function () {
   const projectRoot = residence.findProjectRoot(process.cwd());
@@ -14,23 +15,27 @@ let syncSetup = function () {
   return {pkg, pkgPath};
 };
 
+let getStringifiedData = function(pkg: Object){
+  return JSON.stringify(pkg, null, 2);
+};
+
 export const bumpSync = function () {
   const {pkg, pkgPath} = syncSetup();
-  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+  fs.writeFileSync(pkgPath, getStringifiedData(pkg));
 };
 
 export const bumpp = function () {
   return new Promise(function (resolve, reject) {
     const {pkg, pkgPath} = syncSetup();
-    fs.writeFile(pkgPath, JSON.stringify(pkg, null, 2), function (err) {
+    fs.writeFile(pkgPath, getStringifiedData(pkg), function (err) {
       err ? reject(err) : resolve();
     });
   });
 };
 
-export const bump = function (cb: ErrnoException) {
+export const bump = function (cb: ErrnoExceptionFn) {
   const {pkg, pkgPath} = syncSetup();
-  fs.writeFile(pkgPath, JSON.stringify(pkg, null, 2), cb);
+  fs.writeFile(pkgPath, getStringifiedData(pkg), cb);
 };
 
 if (require.main === module) {
