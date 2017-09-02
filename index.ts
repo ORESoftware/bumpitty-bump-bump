@@ -19,13 +19,13 @@ let getStringifiedData = function(pkg: Object){
   return JSON.stringify(pkg, null, 2);
 };
 
-export const bumpSync = function () {
+export const bumpSync = function () : void {
   const {pkg, pkgPath} = syncSetup();
-  fs.writeFileSync(pkgPath, getStringifiedData(pkg));
+  return fs.writeFileSync(pkgPath, getStringifiedData(pkg));
 };
 
 export const bumpp = function () {
-  return new Promise(function (resolve, reject) {
+  return new Promise<Error | void>(function (resolve, reject) {
     const {pkg, pkgPath} = syncSetup();
     fs.writeFile(pkgPath, getStringifiedData(pkg), function (err) {
       err ? reject(err) : resolve();

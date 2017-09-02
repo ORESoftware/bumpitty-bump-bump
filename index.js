@@ -17,7 +17,7 @@ var getStringifiedData = function (pkg) {
 };
 exports.bumpSync = function () {
     var _a = syncSetup(), pkg = _a.pkg, pkgPath = _a.pkgPath;
-    fs.writeFileSync(pkgPath, getStringifiedData(pkg));
+    return fs.writeFileSync(pkgPath, getStringifiedData(pkg));
 };
 exports.bumpp = function () {
     return new Promise(function (resolve, reject) {
